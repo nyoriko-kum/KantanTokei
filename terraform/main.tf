@@ -7,5 +7,8 @@ resource "aws_s3_bucket_object" "index_page" {
 }
 
 module "cloudfront" {
-  source        = "./modules/cloudfront"
+  source = "./modules/cloudfront"
+
+  bucket_id                   = module.s3_static.bucket_id
+  bucket_regional_domain_name = module.s3_static.bucket_regional_domain_name
 }
