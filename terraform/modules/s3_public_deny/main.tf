@@ -12,3 +12,13 @@ resource "aws_s3_bucket_public_access_block" "this" {
   block_public_policy     = true
   restrict_public_buckets = true
 }
+
+#バージョニングの設定
+resource "aws_s3_bucket_versioning" "this" {
+  count  = var.enable_versioning ? 1 : 0
+  bucket = aws_s3_bucket.this.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
