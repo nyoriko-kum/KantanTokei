@@ -13,10 +13,6 @@ variable "runtime" {
   default = "python3.9"
 }
 
-variable "role_arn" {
-  type = string
-}
-
 variable "s3_key" {
   type = string
 }
@@ -31,3 +27,15 @@ variable "s3_object_version" {
 variable "s3_bucket" {
   type = string
 }
+
+variable "s3_bucket_arn" {
+  type = string
+}
+
+variable "source_code_hash" {
+   type = string 
+   }
+
+variable "role_arn" {
+   type = string 
+   }
